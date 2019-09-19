@@ -9,21 +9,25 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import Header from 'Header.vue'
+
 import EmployeeIndexPage from 'EmployeeIndexPage.vue'
 import EmployeeDetailPage from 'EmployeeDetailPage.vue'
 import EmployeeNewPage from 'EmployeeNewPage.vue'
 import EmployeeEditPage from 'EmployeeEditPage.vue'
-import Header from 'Header.vue'
+import Date from 'Date.vue'
 
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+
+
 Vue.use(BootstrapVue)
 
 
 const router = new VueRouter({
-  mode: 'history',
+
   routes: [
     { path: '/',
       component: EmployeeIndexPage  },
@@ -35,7 +39,10 @@ const router = new VueRouter({
       component: EmployeeNewPage    },
     { path: '/employees/:id(\\d+)/edit',
       name: 'EmployeeEditPage',
-      component: EmployeeEditPage   }
+      component: EmployeeEditPage   },
+    { path: '/date',
+      name: 'Date',
+      component: Date   },
   ]
 })
 
@@ -45,7 +52,7 @@ Vue.use(VueRouter)
 export default {
   router,
   components: {
-    Header,
+    Header
   }
 }
 </script>

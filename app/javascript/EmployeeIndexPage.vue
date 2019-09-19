@@ -25,9 +25,11 @@
         </tr>
       </tbody>
     </table>
-    <modal v-if="showModal" @cancel="showModal = false" @ok="deleteEmployee(); showModal = false;">
-      <div slot="body">Are you sure?</div>
-    </modal>
+    <transition name="fade">
+      <modal v-if="showModal" @cancel="showModal = false" @ok="deleteEmployee(); showModal = false;">
+        <div slot="body">Are you sure?</div>
+      </modal>
+    </transition>
   </div>
 </template>
 
@@ -84,5 +86,37 @@ export default {
 p {
   font-size: 2em;
   text-align: center;
+}
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-to {
+  opacity: 1;
+}
+.fade-enter-active {
+  transition: opacity 300ms ease-out;
+}
+.fade-leave {
+  opacity: 1;
+}
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-leave-active {
+  transition: opacity 300ms ease-out;
+}
+.fade-enter {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.fade-enter-active {
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+.fade-leave-to {
+  opacity: 0;
+  transform: scale(0.97);
+}
+.fade-leave-active {
+  transition: opacity 270ms ease-out, transform 270ms ease-out;
 }
 </style>
